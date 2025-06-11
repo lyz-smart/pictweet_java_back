@@ -32,6 +32,9 @@ public interface UserRepository {
   })
   UserEntity findById(Integer id);
 
+  @Select("SELECT id, nickname FROM users WHERE id = #{id}")
+  UserEntity findUserById(Integer id);
+
   @Select("SELECT * FROM users")
   List<UserEntity> findAll();
 }
